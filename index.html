@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check product-name availability across domains, developer registries, and social profiles before you ship.">
+  <meta name="theme-color" content="#0d0f14">
+  <title>NameFoundry — Product name availability checker</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="site-header shell">
+    <a class="brand" href="./" aria-label="NameFoundry home">
+      <span class="brand-mark">N</span>
+      <span>NameFoundry</span>
+    </a>
+    <a class="github-link" href="https://github.com/bpstr/software-name-finder" target="_blank" rel="noreferrer">Open source <span>↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero shell">
+      <div class="eyebrow">Product naming workspace</div>
+      <h1>Check the name <em>before</em> you build around it.</h1>
+      <p class="hero-copy">One search across domains, developer ecosystems, social profiles, app stores, and trademark research links. Runs privately in your browser.</p>
+
+      <form id="name-form" class="search-panel">
+        <label for="name-input">Product or software name</label>
+        <div class="search-row">
+          <input id="name-input" name="name" autocomplete="off" placeholder="e.g. Renderlane" minlength="2" maxlength="60" required>
+          <button id="check-button" type="submit">Check name</button>
+        </div>
+        <div id="variants" class="variants" aria-label="Name variants"></div>
+      </form>
+
+      <div id="examples" class="examples">
+        <span>Try</span>
+        <button type="button" data-example="Renderlane">Renderlane</button>
+        <button type="button" data-example="Parcelgrid">Parcelgrid</button>
+        <button type="button" data-example="Craftnote">Craftnote</button>
+      </div>
+    </section>
+
+    <section class="trust-strip shell" aria-label="Capabilities">
+      <div><strong>RDAP</strong><span>Authoritative domain checks</span></div>
+      <div><strong>Live APIs</strong><span>GitHub, registries, Bluesky</span></div>
+      <div><strong>Honest status</strong><span>No fake social availability</span></div>
+      <div><strong>Local-first</strong><span>Saved names stay in-browser</span></div>
+    </section>
+
+    <section id="results-shell" class="results-shell shell" hidden>
+      <div class="results-header">
+        <div>
+          <div class="eyebrow">Current candidate</div>
+          <h2 id="current-name">—</h2>
+          <div class="candidate-meta"><span id="current-handle">—</span><span id="current-domain">—</span></div>
+        </div>
+        <div class="score-card">
+          <div class="score-ring"><strong id="score">—</strong><span>/100</span></div>
+          <div><strong id="score-label">Name surface</strong><span id="score-text">Waiting for checks</span><small id="summary">—</small></div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button id="save-button" type="button">Save candidate</button>
+        <button id="export-csv" type="button" class="secondary">Export CSV</button>
+        <button id="export-json" type="button" class="secondary">Export JSON</button>
+      </div>
+
+      <div class="notice">
+        <strong>Availability is a point-in-time signal.</strong>
+        Domain purchases, account registration, and trademark clearance must still be confirmed with the relevant provider.
+      </div>
+
+      <div id="results"></div>
+    </section>
+
+    <section class="saved-section shell">
+      <div class="section-heading large"><div><div class="eyebrow">Browser workspace</div><h2>Saved candidates</h2></div><span>Stored only on this device</span></div>
+      <p id="saved-empty" class="empty-state">No saved candidates yet. Run a check and save the strongest options for comparison.</p>
+      <div id="saved-list" class="saved-list"></div>
+    </section>
+
+    <section class="how-it-works shell">
+      <div class="eyebrow">How results are classified</div>
+      <h2>Useful certainty, not green checkmark theatre.</h2>
+      <div class="explain-grid">
+        <article><span class="explain-icon available">✓</span><h3>Available</h3><p>An authoritative API returned a clear not-found response.</p></article>
+        <article><span class="explain-icon likely">≈</span><h3>Likely available</h3><p>No DNS record was found after RDAP failed. Registrar confirmation is required.</p></article>
+        <article><span class="explain-icon manual">↗</span><h3>Manual check</h3><p>The platform blocks reliable browser checks, so the tool opens the exact profile URL.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <span>NameFoundry is an open-source pre-launch research tool.</span>
+    <span>Names are sent directly from your browser to the selected public providers.</span>
+  </footer>
+
+  <div id="live-region" class="sr-only" aria-live="polite"></div>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
