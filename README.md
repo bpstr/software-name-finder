@@ -2,6 +2,8 @@
 
 A privacy-friendly, dependency-free product-name research tool designed to run on **GitHub Pages**.
 
+**Live app:** https://bpstr.github.io/software-name-finder/
+
 Enter a future product or software name and check:
 
 - domain registration across `.com`, `.io`, `.ai`, `.dev`, `.app`, `.co`, `.net`, `.org`, and `.hu`
@@ -36,18 +38,18 @@ npm test
 
 ## Deploy to GitHub Pages
 
-1. Create a public GitHub repository and push these files to its `main` branch.
-2. Open **Settings → Pages**.
-3. Set **Source** to **GitHub Actions**.
-4. The included `.github/workflows/pages.yml` tests and deploys the static site.
+1. Open **Settings → Pages** in this repository.
+2. Set **Source** to **GitHub Actions**.
+3. Push to `main`, or run the workflow manually from the **Actions** tab.
+4. `.github/workflows/pages.yml` tests the project and deploys the static files.
 
-The site will be published at:
+The published URL is:
 
 ```text
-https://YOUR-USERNAME.github.io/REPOSITORY/
+https://bpstr.github.io/software-name-finder/
 ```
 
-All asset paths are relative, so project Pages URLs work without configuring a base path.
+All asset paths are relative, so the project Pages path works without configuring a build-time base URL.
 
 ## Architecture
 
